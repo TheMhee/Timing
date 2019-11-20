@@ -12,13 +12,13 @@ public class DayBox extends JPanel {
     private String inDate, inDay, inYear, inMonth;
 
     private String dTxt[] = new String[]{"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
-    private Color dColor[] = new Color[]{new Color(200, 200, 200), 
-                                        new Color(242, 232, 141), 
-                                        new Color(255, 139, 147), 
-                                        new Color(3, 192, 60), 
-                                        new Color(243, 154, 39), 
-                                        new Color(87, 154, 190), 
-                                        new Color(151, 110, 215)};
+    private Color dColor[] = new Color[]{new Color(200, 200, 200),
+        new Color(242, 232, 141),
+        new Color(255, 139, 147),
+        new Color(3, 192, 60),
+        new Color(243, 154, 39),
+        new Color(87, 154, 190),
+        new Color(151, 110, 215)};
 
     private static Calendar c = Calendar.getInstance();
     private static int year = c.get(c.YEAR);
@@ -121,11 +121,14 @@ public class DayBox extends JPanel {
         if (i == 0) {
             datePos = 1;
         }
-        if ((datePos <= JsonManager.getMonthLen(year + "", month + "") && (dTxt[i % 7].equals(JsonManager.getDayOfWeek(year, month, datePos))))) {
-            
+        if (i % 2 == 0) {
+            this.setBackground(new Color(188, 188, 188));
+        } else {
             this.setBackground(new Color(200, 200, 200));
+        }
+        if ((datePos <= JsonManager.getMonthLen(year + "", month + "") && (dTxt[i % 7].equals(JsonManager.getDayOfWeek(year, month, datePos))))) {
             workTxt1.setText(JsonManager.getActTitle(year + "", month + "", datePos + "", 1));
-            if (!JsonManager.getActTimeStart(year + "", month + "", datePos + "", 1).equals("")&&!(JsonManager.getActTimeStart(year + "", month + "", datePos + "", 1).equals("00.00")&&JsonManager.getActTimeEnd(year + "", month + "", datePos + "", 1).equals("00.00"))) {
+            if (!JsonManager.getActTimeStart(year + "", month + "", datePos + "", 1).equals("") && !(JsonManager.getActTimeStart(year + "", month + "", datePos + "", 1).equals("00.00") && JsonManager.getActTimeEnd(year + "", month + "", datePos + "", 1).equals("00.00"))) {
                 workTxt2.setText(JsonManager.getActTimeStart(year + "", month + "", datePos + "", 1) + " - " + JsonManager.getActTimeEnd(year + "", month + "", datePos + "", 1));
             } else {
                 workTxt2.setText("");
@@ -137,9 +140,6 @@ public class DayBox extends JPanel {
             inYear = year + "";
             datePos += 1;
 //			System.out.println(inDate+" "+inDay+" "+inMonth+" "+inYear+" ");
-        }
-        else{
-            this.setBackground(new Color(230, 230, 230));
         }
 
     }

@@ -2,6 +2,7 @@ package Application;
 
 
 
+import java.awt.Font;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JLabel;
@@ -23,6 +24,7 @@ public class Clock extends JLabel implements Runnable{
         while(true){
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy : HH:mm:ss");
             Date date = new Date();
+            this.setFont(new Font(this.getFont().getName(), Font.PLAIN, 16));
             this.setText(sdf.format(date));
             try {
                 Thread.sleep(1000);

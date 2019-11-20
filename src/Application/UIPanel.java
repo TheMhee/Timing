@@ -5,6 +5,7 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -56,6 +57,8 @@ public class UIPanel {
         frame3 = new JInternalFrame("", false, false, false, false);
         loginFrame = new JInternalFrame("", false, false, false, false);
         frame2.setBorder(null);
+        
+
 
         //remove frame2's title bar
         ((javax.swing.plaf.basic.BasicInternalFrameUI) frame2.getUI()).setNorthPane(null);
@@ -87,6 +90,8 @@ public class UIPanel {
 
         //check calendarJSON file
         JsonManager.checkFile();
+        
+        fr.setResizable(false);
 
         //get screenSize 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -123,6 +128,7 @@ public class UIPanel {
 
         //EventListener
         EventHandler eh = new EventHandler(this);
+        
         calendarBtn.addActionListener(eh);
         reminderBtn.addActionListener(eh);
         pMonth.addActionListener(eh);
@@ -138,7 +144,9 @@ public class UIPanel {
         cHead3.setLayout(new FlowLayout());
 
         //plz add name form database
-        cHead1.add(new JLabel("Welcome " + welName + ".  Have a good day!"));
+        JLabel WelcomeHeadLabel = new JLabel("Welcome " + welName + ".  Have a good day!");
+        WelcomeHeadLabel.setFont(new Font(cHead1.getFont().getName(), Font.PLAIN, 16));
+        cHead1.add(WelcomeHeadLabel);
         Clock cl = new Clock();
         Thread t = new Thread(cl);
         t.start();
@@ -168,6 +176,7 @@ public class UIPanel {
         dColor = new Color[]{new Color(194, 59, 35), new Color(234, 218, 82), new Color(255, 139, 147), new Color(3, 192, 60), new Color(243, 154, 39), new Color(87, 154, 190), new Color(151, 110, 215)};
         for (int i = 0; i < 7; i++) {
             dayHead[i] = new DayHead(calendarBody, i);
+            dayHead[i].addMouseListener(eh);
 //			dayHead[i].addDay(dTxt[i]);
             calendarBody.add(dayHead[i]);
         }
@@ -188,6 +197,7 @@ public class UIPanel {
         db.addYearToDb(year);
 
         showMonth.setText(JsonManager.getMonthName(year + "", month + "") + "/" + year);
+        showMonth.setFont(new Font(cHead1.getFont().getName(), Font.PLAIN, 16));
 
         calendarHead.add(cHead1);
         calendarHead.add(cHead2);
@@ -209,6 +219,8 @@ public class UIPanel {
 //                acInfo1.setEditable(false);
 
         dayInfo_insert = new JTextArea();
+        dayInfo_insert.setLineWrap(true);
+        dayInfo_insert.setWrapStyleWord(true);
         dayInfo.setLayout(new GridLayout(7, 1));
         dayInfo.add(dayInfo_day);
         JPanel pa = new JPanel(new FlowLayout());
@@ -239,8 +251,13 @@ public class UIPanel {
             acEndTime_m.addItem(String.format("%02d", i));
             acStartTime_m.addItem(String.format("%02d", i));
         }
-        pb.add(new JLabel("Edit your activity"));
+        
+        JPanel toAddEditLabel = new JPanel(new GridLayout(2, 1));
+        toAddEditLabel.add(new JLabel(""));
+        toAddEditLabel.add(new JLabel("Edit your activity"));
+        pb.add(toAddEditLabel);
         pb.add(dayInfo_insert);
+        dayInfo_insert.setSize(250, 250);
         pc.add(new JLabel("Time : "));
         pc.add(acStartTime_h);
         pc.add(acStartTime_m);
@@ -250,21 +267,26 @@ public class UIPanel {
         temp.add(pc);
         temp.add(pd);
         pb.add(temp);
-        pb.add(acSave);
-        frame3.setSize(250, 400);
+        JPanel toAddAcSave = new JPanel(new GridLayout(2, 1));
+        toAddAcSave.add(new JLabel(""));
+        toAddAcSave.add(acSave);
+        pb.add(toAddAcSave);
+        frame3.setSize(250, 300);
         frame3.add(pb, BorderLayout.CENTER);
 
         //Listener
         acEdit.addActionListener(eh);
         acSave.addActionListener(eh);
-
+        frame3.addInternalFrameListener(eh);
+        frame1.addInternalFrameListener(eh);
+        
         //Add Component
         leftPanel.add(calendarBtn);
         leftPanel.add(reminderBtn);
         centerPanel.add(cardCalendar, BorderLayout.CENTER);
-//		centerPanel.add(cardReminder, "cardReminder");
+//	centerPanel.add(cardReminder, "cardReminder");
 
-//		frame2.add(leftPanel, BorderLayout.WEST);
+//	frame2.add(leftPanel, BorderLayout.WEST);
         frame2.add(centerPanel, BorderLayout.CENTER);
         frame1.pack();
 //		frame2.pack();
@@ -291,8 +313,24 @@ public class UIPanel {
 
     }
 
+    public JPanel getCalendarHead() {
+        return calendarHead;
+    }
+
+    public void setCalendarHead(JPanel calendarHead) {
+        this.calendarHead = calendarHead;
+    }
+
     public JButton getpYear() {
         return pYear;
+    }
+
+    public DayHead[] getDayHead() {
+        return dayHead;
+    }
+
+    public void setDayHead(DayHead[] dayHead) {
+        this.dayHead = dayHead;
     }
 
     public void setpYear(JButton pYear) {
