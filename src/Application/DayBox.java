@@ -86,7 +86,7 @@ public class DayBox extends JPanel {
 
         showDay(i, year, month);
 
-        dayTxt.setFont(new Font("Serif", Font.BOLD, 20));
+        dayTxt.setFont(new Font(dayTxt.getFont().getName(), Font.PLAIN, 22));
         this.setLayout(new GridLayout(4, 1));
         this.add(dayTxt);
         this.add(workTxt1);

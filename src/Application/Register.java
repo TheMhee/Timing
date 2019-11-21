@@ -1,5 +1,6 @@
 package Application;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -23,7 +24,7 @@ import javax.swing.Timer;
  * @author Tiraphong
  */
 public class Register extends javax.swing.JFrame {
-
+    private WelcomePanel wel;
     Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pst = null;
@@ -31,7 +32,8 @@ public class Register extends javax.swing.JFrame {
     /**
      * Creates new form Register
      */
-    public Register() {
+    public Register(WelcomePanel wel) {
+        this.wel = wel;
         initComponents();
         try {
             conn = db.java__db();
@@ -89,8 +91,10 @@ public class Register extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         txt_mail = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        errorText = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(166, 227, 233));
 
         FlowLayoutBG.setBackground(new java.awt.Color(166, 227, 233));
@@ -188,14 +192,19 @@ public class Register extends javax.swing.JFrame {
 
         jLabel9.setText("E-mail:");
 
+        jPanel1.setBackground(new java.awt.Color(222, 252, 252));
+
+        errorText.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                errorTextMouseClicked(evt);
+            }
+        });
+        jPanel1.add(errorText);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
-                .addComponent(jLabel6)
-                .addGap(39, 39, 39))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -234,6 +243,15 @@ public class Register extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabeltime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(61, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(35, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(39, 39, 39))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -260,10 +278,12 @@ public class Register extends javax.swing.JFrame {
                     .addComponent(txt_mail, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
                 .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(9, 9, 9)
                 .addComponent(jButtonregister)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabelregiser, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
                 .addGap(30, 30, 30)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -344,7 +364,9 @@ public class Register extends javax.swing.JFrame {
             pst.execute();
             
             conn.close();
-            JOptionPane.showMessageDialog(null, "Register Success.");
+//            JOptionPane.showMessageDialog(null, "Register Success.");
+            errorText.setText("Register Success.");
+            errorText.setForeground(Color.green);
 
         } catch (SQLException e) {
             //                JOptionPane.showMessageDialog(null, e);
@@ -353,11 +375,11 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonregisterActionPerformed
 
     private void jLabelregiserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelregiserMouseClicked
-        Signin rgf = new Signin();
+        Signin rgf = new Signin(wel);
         rgf.setVisible(true);
         rgf.pack();
         rgf.setLocationRelativeTo(null);
-        rgf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        rgf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
     }//GEN-LAST:event_jLabelregiserMouseClicked
 
@@ -370,8 +392,13 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelhideMouseClicked
 
     private void jLabelcloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelcloseMouseClicked
-        System.exit(0);
+//        System.exit(0);
     }//GEN-LAST:event_jLabelcloseMouseClicked
+
+    private void errorTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_errorTextMouseClicked
+        new UIPanel().init("Guest");
+        this.dispose();
+    }//GEN-LAST:event_errorTextMouseClicked
 
     /**
      * @param args the command line arguments
@@ -398,13 +425,14 @@ public class Register extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new Register().setVisible(true);
+            new Register(null).setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel FlowLayoutBG;
     private javax.swing.JPanel FreeLayoutBG;
+    private javax.swing.JLabel errorText;
     private javax.swing.JButton jButtonregister;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -420,6 +448,7 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelhide;
     private javax.swing.JLabel jLabelregiser;
     private javax.swing.JLabel jLabeltime;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField txt_fname;
     private javax.swing.JTextField txt_lname;

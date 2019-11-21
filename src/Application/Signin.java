@@ -25,6 +25,7 @@ import javax.swing.Timer;
  */
 public class Signin extends javax.swing.JFrame {
 
+    private WelcomePanel wel;
     Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pst = null;
@@ -32,7 +33,8 @@ public class Signin extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
-    public Signin() {
+    public Signin(WelcomePanel wel) {
+        this.wel = wel;
         initComponents();
         try {
             conn = db.java__db();
@@ -84,9 +86,10 @@ public class Signin extends javax.swing.JFrame {
         jLabeldate = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        errorText = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         FlowLayoutBG.setBackground(new java.awt.Color(166, 227, 233));
@@ -94,7 +97,6 @@ public class Signin extends javax.swing.JFrame {
 
         FreeLayoutBG.setBackground(new java.awt.Color(166, 227, 233));
 
-        btHide.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Application/icon/hide.png"))); // NOI18N
         btHide.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btHide.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -102,7 +104,6 @@ public class Signin extends javax.swing.JFrame {
             }
         });
 
-        btClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Application/icon/close.png"))); // NOI18N
         btClose.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btClose.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -153,12 +154,14 @@ public class Signin extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("AngsanaUPC", 0, 48)); // NOI18N
         jLabel2.setText("Sign In");
 
-        jLabel7.setText("use offine");
-        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+        jPanel1.setBackground(new java.awt.Color(222, 252, 252));
+
+        errorText.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel7MouseClicked(evt);
+                errorTextMouseClicked(evt);
             }
         });
+        jPanel1.add(errorText);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -188,14 +191,19 @@ public class Signin extends javax.swing.JFrame {
                                     .addComponent(txt_password, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGap(22, 22, 22)
-                                        .addComponent(jLabel2))
-                                    .addComponent(jButtonlogin, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabelregiser)
-                                    .addComponent(jLabel7)))
+                                        .addComponent(jLabel2))))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(2, 2, 2)
-                                .addComponent(jLabel6)))))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                 .addContainerGap(49, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonlogin, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelregiser))
+                .addGap(139, 139, 139))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,13 +217,13 @@ public class Signin extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txt_password, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
-                .addComponent(jButtonlogin)
+                .addGap(8, 8, 8)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonlogin)
+                .addGap(1, 1, 1)
                 .addComponent(jLabelregiser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7)
-                .addGap(18, 18, 18)
+                .addGap(11, 11, 11)
                 .addComponent(jLabel6)
                 .addGap(30, 30, 30)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -267,15 +275,14 @@ public class Signin extends javax.swing.JFrame {
     }//GEN-LAST:event_btHideMouseClicked
 
     private void btCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btCloseMouseClicked
-        System.exit(0);
+//        System.exit(0);
     }//GEN-LAST:event_btCloseMouseClicked
 
     private void jLabelregiserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelregiserMouseClicked
-        Register rgf = new Register();
+        Register rgf = new Register(wel);
         rgf.setVisible(true);
         rgf.pack();
         rgf.setLocationRelativeTo(null);
-        rgf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
     }//GEN-LAST:event_jLabelregiserMouseClicked
 
@@ -288,24 +295,34 @@ public class Signin extends javax.swing.JFrame {
 
             rs = pst.executeQuery();
             String s = rs.getString("FristName");
+            String us = rs.getString("Username");
             if (rs.next()) {
-                JOptionPane.showConfirmDialog(null, "Username and PassWord is Correct.");
-                
+//                JOptionPane.showConfirmDialog(null, "Username and PassWord is Correct.");
+
                 conn.close();
-                new UIPanel().init(s);
+                wel.setName(s);
+                wel.setUserName(us);
+                wel.getLogintext().setText("logout");
+                wel.updateText();
                 this.dispose();
             } else {
-                JOptionPane.showConfirmDialog(null, "Username and PassWord is Not Correct.");
+//                JOptionPane.showConfirmDialog(null, "Username and PassWord is Not Correct.");
+                errorText.setText("Please check your username or password");
+                errorText.setForeground(Color.red);
             }
-        } catch (HeadlessException | SQLException e) {
+        } catch (HeadlessException e) {
             JOptionPane.showConfirmDialog(null, e);
+        } catch (SQLException e) {
+            errorText.setText("Please check your username or password");
+            errorText.setForeground(Color.red);
+
         }
     }//GEN-LAST:event_jButtonloginActionPerformed
 
-    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+    private void errorTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_errorTextMouseClicked
         new UIPanel().init("Guest");
         this.dispose();
-    }//GEN-LAST:event_jLabel7MouseClicked
+    }//GEN-LAST:event_errorTextMouseClicked
 
     /**
      * @param args the command line arguments
@@ -333,7 +350,7 @@ public class Signin extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new Signin().setVisible(true);
+            new Signin(null).setVisible(true);
         });
     }
 
@@ -342,6 +359,7 @@ public class Signin extends javax.swing.JFrame {
     private javax.swing.JPanel FreeLayoutBG;
     private javax.swing.JLabel btClose;
     private javax.swing.JLabel btHide;
+    private javax.swing.JLabel errorText;
     private javax.swing.JButton jButtonlogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -349,10 +367,10 @@ public class Signin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabeldate;
     private javax.swing.JLabel jLabelregiser;
     private javax.swing.JLabel jLabeltime;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField txt_password;
     private javax.swing.JTextField txt_username;

@@ -6,11 +6,11 @@ import java.awt.*;
 public class DayHead extends JPanel{
 	private JLabel dayTxt;
 
-	String dTxt[] = new String[]{"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
+	String dTxt[] = new String[]{"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 	Color dColor[] = new Color[] {new Color(194, 59, 35), new Color(234, 218, 82), new Color(255, 139, 147), new Color(3, 192, 60), new Color(243, 154, 39), new Color(87, 154, 190), new Color(151, 110, 215)};
 	public DayHead(JPanel jp, int i) {
 		dayTxt = new JLabel();
-		
+		dayTxt.setFont(new Font(dayTxt.getFont().getName(), Font.PLAIN, 18));
 		//System.out.print(jp.getPreferredSize().width + " " + jp.getPreferredSize().height);
 		dayTxt.setHorizontalAlignment(SwingConstants.CENTER);
 		dayTxt.setText(dTxt[i]);

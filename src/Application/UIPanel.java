@@ -145,12 +145,15 @@ public class UIPanel {
 
         //plz add name form database
         JLabel WelcomeHeadLabel = new JLabel("Welcome " + welName + ".  Have a good day!");
+        System.out.println(cHead1.getFont());
         WelcomeHeadLabel.setFont(new Font(cHead1.getFont().getName(), Font.PLAIN, 16));
         cHead1.add(WelcomeHeadLabel);
-        Clock cl = new Clock();
-        Thread t = new Thread(cl);
-        t.start();
-        cHead2.add(cl);
+        //clock
+//        Clock cl = new Clock();
+//        Thread t = new Thread(cl);
+//        t.start();
+        //clock
+        cHead2.add(new WelcomePanel());
 
         cHead3.add(pYear);
         cHead3.add(pMonth);
@@ -160,7 +163,7 @@ public class UIPanel {
         cHead3.add(nMonth);
         cHead3.add(nYear);
 
-        calendarHead.setLayout(new GridLayout(3, 1));
+        calendarHead.setLayout(new GridLayout(2, 1));
         calendarBody.setLayout(new GridLayout(7, 7, 2, 2));
         fr.setSize(1600, 1000);
         frame2.setSize(1585, 960);
@@ -199,7 +202,6 @@ public class UIPanel {
         showMonth.setText(JsonManager.getMonthName(year + "", month + "") + "/" + year);
         showMonth.setFont(new Font(cHead1.getFont().getName(), Font.PLAIN, 16));
 
-        calendarHead.add(cHead1);
         calendarHead.add(cHead2);
         calendarHead.add(cHead3);
         cardCalendar.add(calendarHead, BorderLayout.NORTH);
