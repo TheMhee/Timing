@@ -33,6 +33,7 @@ public class Register extends javax.swing.JFrame {
      * Creates new form Register
      */
     public Register(WelcomePanel wel) {
+        this.setTitle("Register");
         this.wel = wel;
         initComponents();
         try {
@@ -54,7 +55,7 @@ public class Register extends javax.swing.JFrame {
     void showTime() {
         new Timer(0, (ActionEvent e) -> {
             Date d = new Date();
-            SimpleDateFormat s = new SimpleDateFormat("hh:mm:ss a");
+            SimpleDateFormat s = new SimpleDateFormat("HH:mm:ss");
             jLabeltime.setText(s.format(d));
         }).start();
     }
@@ -70,8 +71,6 @@ public class Register extends javax.swing.JFrame {
 
         FlowLayoutBG = new javax.swing.JPanel();
         FreeLayoutBG = new javax.swing.JPanel();
-        jLabelclose = new javax.swing.JLabel();
-        jLabelhide = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -100,22 +99,6 @@ public class Register extends javax.swing.JFrame {
         FlowLayoutBG.setBackground(new java.awt.Color(166, 227, 233));
 
         FreeLayoutBG.setBackground(new java.awt.Color(166, 227, 233));
-
-        jLabelclose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Application/icon/close.png"))); // NOI18N
-        jLabelclose.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabelclose.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelcloseMouseClicked(evt);
-            }
-        });
-
-        jLabelhide.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Application/icon/hide.png"))); // NOI18N
-        jLabelhide.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabelhide.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelhideMouseClicked(evt);
-            }
-        });
 
         jPanel3.setBackground(new java.awt.Color(222, 252, 252));
 
@@ -300,27 +283,17 @@ public class Register extends javax.swing.JFrame {
         FreeLayoutBG.setLayout(FreeLayoutBGLayout);
         FreeLayoutBGLayout.setHorizontalGroup(
             FreeLayoutBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(FreeLayoutBGLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 10, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FreeLayoutBGLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabelhide)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelclose)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         FreeLayoutBGLayout.setVerticalGroup(
             FreeLayoutBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FreeLayoutBGLayout.createSequentialGroup()
+            .addGroup(FreeLayoutBGLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(FreeLayoutBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelhide)
-                    .addComponent(jLabelclose))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         FlowLayoutBG.add(FreeLayoutBG);
@@ -387,14 +360,6 @@ public class Register extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_usernameActionPerformed
 
-    private void jLabelhideMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelhideMouseClicked
-        this.setState(JFrame.ICONIFIED);
-    }//GEN-LAST:event_jLabelhideMouseClicked
-
-    private void jLabelcloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelcloseMouseClicked
-//        System.exit(0);
-    }//GEN-LAST:event_jLabelcloseMouseClicked
-
     private void errorTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_errorTextMouseClicked
         new UIPanel().init("Guest");
         this.dispose();
@@ -443,9 +408,7 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel jLabelclose;
     private javax.swing.JLabel jLabeldate;
-    private javax.swing.JLabel jLabelhide;
     private javax.swing.JLabel jLabelregiser;
     private javax.swing.JLabel jLabeltime;
     private javax.swing.JPanel jPanel1;

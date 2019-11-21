@@ -34,6 +34,7 @@ public class Signin extends javax.swing.JFrame {
      * Creates new form Login
      */
     public Signin(WelcomePanel wel) {
+        this.setTitle("Signin");
         this.wel = wel;
         initComponents();
         try {
@@ -47,7 +48,7 @@ public class Signin extends javax.swing.JFrame {
 
     void showDate() {
         Date d = new Date();
-        SimpleDateFormat s = new SimpleDateFormat("dd -MM-yyyy");
+        SimpleDateFormat s = new SimpleDateFormat("dd-MM-yyyy");
         jLabeldate.setText(s.format(d));
 
     }
@@ -55,7 +56,7 @@ public class Signin extends javax.swing.JFrame {
     void showTime() {
         new Timer(0, (ActionEvent e) -> {
             Date d = new Date();
-            SimpleDateFormat s = new SimpleDateFormat("hh:mm:ss a");
+            SimpleDateFormat s = new SimpleDateFormat("HH:mm:ss");
             jLabeltime.setText(s.format(d));
         }).start();
     }

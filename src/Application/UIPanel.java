@@ -66,7 +66,7 @@ public class UIPanel {
         ((javax.swing.plaf.basic.BasicInternalFrameUI) frame1.getUI()).setNorthPane(null);
         ((javax.swing.plaf.basic.BasicInternalFrameUI) frame3.getUI()).setNorthPane(null);
 
-        fr = new JFrame();
+        fr = new JFrame("Timing");
         mainPanel = new JPanel();
         leftPanel = new JPanel();
         menuBtn = new JButton();
@@ -199,7 +199,7 @@ public class UIPanel {
 
         //SQL TEST
 //        db.addYearToDb(year);
-        showMonth.setText(JsonManager.getMonthName(year + "", month + "") + "/" + year);
+        showMonth.setText(JsonManager.getMonthName(year + "", month + "") + " - " + year);
         showMonth.setFont(new Font(cHead1.getFont().getName(), Font.PLAIN, 16));
 
         calendarHead.add(cHead2);
