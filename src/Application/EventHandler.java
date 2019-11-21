@@ -85,13 +85,13 @@ public class EventHandler implements ActionListener, MouseListener, InternalFram
 
         } else if (e.getSource() == up.getDayInfo().getEditButton()) {
             up.getFrame3().setVisible(true);
-            up.getDayInfo_insert().setText(up.getAcInfo1().getText());
+            up.getEditInfo().getAcEditInfo_Insert().setText(up.getAcInfo1().getText());
             if (dbTemp.getIndex() % 7 < 4) {
                 int x2 = dbTemp.getX() + dbTemp.getWidth();
                 int y2 = dbTemp.getY() + dbTemp.getHeight() - 20;
                 up.getFrame3().setLocation(x2, y2);
             } else {
-                int x2 = dbTemp.getX() - dbTemp.getWidth();
+                int x2 = dbTemp.getX() - dbTemp.getWidth() - 45;
                 int y2 = dbTemp.getY() + dbTemp.getHeight() - 20;
                 up.getFrame3().setLocation(x2, y2);
             }
@@ -108,24 +108,30 @@ public class EventHandler implements ActionListener, MouseListener, InternalFram
                 e1.printStackTrace();
             }
 
-        } else if (e.getSource() == up.getAcSave()) {
-            System.out.println(up.getDayInfo_insert().getText());
-            //System.out.print(dbTemp.getMonth());
-            JsonManager.setActTitle(dbTemp.getYear() + "", dbTemp.getMonth() + "", dbTemp.getInDate(), up.getDayInfo_insert().getText());
+        } else if (e.getSource() == up.getEditInfo().getSaveButton()) {
+//            System.out.println(up.getDayInfo_insert().getText());
+            System.out.print(up.getDayInfo().getAcArea().getText());
+            JsonManager.setActTitle(dbTemp.getYear() + "", dbTemp.getMonth() + "", dbTemp.getInDate(), up.getEditInfo().getAcEditInfo_Insert().getText());
             JsonManager.setActTime(dbTemp.getYear() + "", dbTemp.getMonth() + "", dbTemp.getInDate(),
-                    up.getAcStartTime_h().getSelectedItem().toString() + "." + up.getAcStartTime_m().getSelectedItem().toString(),
-                    up.getAcEndTime_h().getSelectedItem().toString() + "." + up.getAcEndTime_m().getSelectedItem().toString());
+                    up.getEditInfo().getAcStartTime_h().getSelectedItem().toString() + "."
+                    + up.getEditInfo().getAcStartTime_m().getSelectedItem().toString(),
+                    up.getEditInfo().getAcEndTime_h().getSelectedItem().toString() + "."
+                    + up.getEditInfo().getAcEndTime_m().getSelectedItem().toString());
+            
             for (int i = 0; i < 42; i++) {
                 up.getDayBox()[i].clearDay();
                 up.getDayBox()[i].showDay(i, up.getDayBox()[1].getYear(), up.getDayBox()[1].getMonth());
             }
-            up.getAcInfo1().setText(dbTemp.getWorkTxt1().getText());
-            up.getAcTime().setText(dbTemp.getWorkTxt2().getText());
-            up.getDayInfo_insert().setText("");
-            up.getAcStartTime_h().setSelectedIndex(0);
-            up.getAcStartTime_m().setSelectedIndex(0);
-            up.getAcEndTime_h().setSelectedIndex(0);
-            up.getAcEndTime_m().setSelectedIndex(0);
+            up.getDayInfo().getAcArea().setText(dbTemp.getWorkTxt1().getText());
+            up.getDayInfo().getTimeLabel().setText(dbTemp.getWorkTxt2().getText());
+            up.getDayInfo().getDayLabel().setText(dbTemp.getInDay()
+            + ",  " + dbTemp.getInDate() + " " + dbTemp.getInMonth() + " " + dbTemp.getInYear());
+            
+            up.getEditInfo().getAcEditInfo_Insert().setText("");
+            up.getEditInfo().getAcStartTime_h().setSelectedIndex(0);
+            up.getEditInfo().getAcStartTime_m().setSelectedIndex(0);
+            up.getEditInfo().getAcEndTime_h().setSelectedIndex(0);
+            up.getEditInfo().getAcEndTime_m().setSelectedIndex(0);
 
             up.getFrame1().setVisible(false);
             up.getFrame3().setVisible(false);

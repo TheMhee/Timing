@@ -6,6 +6,7 @@
 package Application;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -24,6 +25,31 @@ public class acEditInfo extends javax.swing.JPanel {
         initComponents();
     }
 
+    public JTextArea getAcEditInfo_Insert() {
+        return acEditInfo_Insert;
+    }
+
+    public JComboBox getAcEndTime_h() {
+        return acEndTime_h;
+    }
+
+    public JComboBox getAcEndTime_m() {
+        return acEndTime_m;
+    }
+
+    public JComboBox getAcStartTime_h() {
+        return acStartTime_h;
+    }
+
+    public JComboBox getAcStartTime_m() {
+        return acStartTime_m;
+    }
+
+    public JButton getSaveButton() {
+        return saveButton;
+    }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -36,11 +62,11 @@ public class acEditInfo extends javax.swing.JPanel {
 
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        editButton = new javax.swing.JButton();
+        saveButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        acArea = new javax.swing.JTextArea();
+        acEditInfo_Insert = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
-        dayLabel = new javax.swing.JLabel();
+        headLabel = new javax.swing.JLabel();
         acStartTime_h = new javax.swing.JComboBox<>();
         acStartTime_m = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
@@ -62,34 +88,34 @@ public class acEditInfo extends javax.swing.JPanel {
 
         jLabel1.setText("Time");
 
-        editButton.setText("Save");
-        editButton.addActionListener(new java.awt.event.ActionListener() {
+        saveButton.setText("Save");
+        saveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editButtonActionPerformed(evt);
+                saveButtonActionPerformed(evt);
             }
         });
 
-        acArea.setColumns(20);
-        acArea.setRows(5);
-        acArea.setMaximumSize(new java.awt.Dimension(180, 80));
-        acArea.setMinimumSize(new java.awt.Dimension(180, 80));
-        acArea.setPreferredSize(new java.awt.Dimension(180, 80));
-        jScrollPane1.setViewportView(acArea);
-        acArea.setLineWrap(true);
-        acArea.setWrapStyleWord(true);
+        acEditInfo_Insert.setColumns(20);
+        acEditInfo_Insert.setRows(5);
+        acEditInfo_Insert.setMaximumSize(new java.awt.Dimension(180, 80));
+        acEditInfo_Insert.setMinimumSize(new java.awt.Dimension(180, 80));
+        acEditInfo_Insert.setPreferredSize(new java.awt.Dimension(180, 80));
+        jScrollPane1.setViewportView(acEditInfo_Insert);
+        acEditInfo_Insert.setLineWrap(true);
+        acEditInfo_Insert.setWrapStyleWord(true);
 
-        dayLabel.setText("Edit youy Activity");
-        jPanel2.add(dayLabel);
+        headLabel.setText("Edit youy Activity");
+        jPanel2.add(headLabel);
 
-        acStartTime_h.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        acStartTime_h.setModel(new javax.swing.DefaultComboBoxModel<>());
 
-        acStartTime_m.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        acStartTime_m.setModel(new javax.swing.DefaultComboBoxModel<>());
 
         jLabel2.setText("to");
 
-        acEndTime_h.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        acEndTime_h.setModel(new javax.swing.DefaultComboBoxModel<>());
 
-        acEndTime_m.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        acEndTime_m.setModel(new javax.swing.DefaultComboBoxModel<>());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -101,24 +127,26 @@ public class acEditInfo extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(acEndTime_h, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(acStartTime_h, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(42, 42, 42)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(acEndTime_h, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(acStartTime_h, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(acStartTime_m, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel2))
+                                    .addComponent(acStartTime_m, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(acEndTime_m, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 20, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(editButton)
+                                .addComponent(saveButton)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())))
@@ -130,41 +158,45 @@ public class acEditInfo extends javax.swing.JPanel {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(acStartTime_h, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(acStartTime_m, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(acEndTime_h, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(acEndTime_m, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(acStartTime_h, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(acStartTime_m, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(acEndTime_h, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(acEndTime_m, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel1)
+                        .addGap(17, 17, 17)
+                        .addComponent(jLabel2)))
                 .addGap(24, 24, 24)
-                .addComponent(editButton)
+                .addComponent(saveButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
+    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_editButtonActionPerformed
+    }//GEN-LAST:event_saveButtonActionPerformed
     public static void main(String[] args) {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea acArea;
+    private javax.swing.JTextArea acEditInfo_Insert;
     private javax.swing.JComboBox<String> acEndTime_h;
     private javax.swing.JComboBox<String> acEndTime_m;
     private javax.swing.JComboBox<String> acStartTime_h;
     private javax.swing.JComboBox<String> acStartTime_m;
-    private javax.swing.JLabel dayLabel;
-    private javax.swing.JButton editButton;
+    private javax.swing.JLabel headLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton saveButton;
     // End of variables declaration//GEN-END:variables
 }

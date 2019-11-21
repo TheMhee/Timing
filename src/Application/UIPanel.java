@@ -35,9 +35,10 @@ public class UIPanel {
     private Color[] dColor;
 
     private JInternalFrame frame1, frame2, frame3, loginFrame;
-    
+
     private acInfo dayInfo;
-    
+    private acEditInfo editInfo;
+
     public JPanel getCenterPanel() {
         return centerPanel;
     }
@@ -51,7 +52,7 @@ public class UIPanel {
     }
 
     public void init(String name) {
-        
+
         welName = name;
         desktopPane = new JDesktopPane();
         frame1 = new JInternalFrame("", true, false, false, false);
@@ -59,8 +60,6 @@ public class UIPanel {
         frame3 = new JInternalFrame("", false, false, false, false);
         loginFrame = new JInternalFrame("", false, false, false, false);
         frame2.setBorder(null);
-        
-
 
         //remove frame2's title bar
         ((javax.swing.plaf.basic.BasicInternalFrameUI) frame2.getUI()).setNorthPane(null);
@@ -92,7 +91,7 @@ public class UIPanel {
 
         //check calendarJSON file
         JsonManager.checkFile();
-        
+
         fr.setResizable(false);
 
         //get screenSize 
@@ -130,7 +129,7 @@ public class UIPanel {
 
         //EventListener
         EventHandler eh = new EventHandler(this);
-        
+
         calendarBtn.addActionListener(eh);
         reminderBtn.addActionListener(eh);
         pMonth.addActionListener(eh);
@@ -200,7 +199,6 @@ public class UIPanel {
 
         //SQL TEST
 //        db.addYearToDb(year);
-
         showMonth.setText(JsonManager.getMonthName(year + "", month + "") + "/" + year);
         showMonth.setFont(new Font(cHead1.getFont().getName(), Font.PLAIN, 16));
 
@@ -220,9 +218,8 @@ public class UIPanel {
         acInfo1 = new JLabel();
         acTextInfo = new JTextArea();
         acTextInfo.setEditable(false);
-        acTextInfo.setSize(acTextInfo.getWidth(), acTextInfo.getHeight()*2);
-        
-        
+        acTextInfo.setSize(acTextInfo.getWidth(), acTextInfo.getHeight() * 2);
+
 // 11/21/2019 move all day Info into acInfo Class
 //        dayInfo.setLayout(new GridLayout(7, 1));
 //        dayInfo.add(dayInfo_day);
@@ -237,59 +234,59 @@ public class UIPanel {
 //        dayInfo.add(acTime);
 //        dayInfo.add(new JPanel(new FlowLayout()).add(acEdit));
 // 11/21/2019 move all day Info into acInfo Class
-
-
         dayInfo = new acInfo();
         frame1.add(dayInfo);
 
-        dayInfo_insert = new JTextArea();
-        dayInfo_insert.setLineWrap(true);
-        dayInfo_insert.setWrapStyleWord(true);
-        JPanel pb = new JPanel(new GridLayout(4, 1));
-        JPanel temp = new JPanel(new GridLayout(2, 1));
-        JPanel pc = new JPanel(new FlowLayout());
-        JPanel pd = new JPanel(new FlowLayout());
-        acEndTime_h = new JComboBox();
-        acEndTime_m = new JComboBox();
-        acStartTime_h = new JComboBox();
-        acStartTime_m = new JComboBox();
+//        dayInfo_insert = new JTextArea();
+//        dayInfo_insert.setLineWrap(true);
+//        dayInfo_insert.setWrapStyleWord(true);
+//        JPanel pb = new JPanel(new GridLayout(4, 1));
+//        JPanel temp = new JPanel(new GridLayout(2, 1));
+//        JPanel pc = new JPanel(new FlowLayout());
+//        JPanel pd = new JPanel(new FlowLayout());
+//        acEndTime_h = new JComboBox();
+//        acEndTime_m = new JComboBox();
+//        acStartTime_h = new JComboBox();
+//        acStartTime_m = new JComboBox();
+//        
+//        JPanel toAddEditLabel = new JPanel(new GridLayout(2, 1));
+//        toAddEditLabel.add(new JLabel(""));
+//        toAddEditLabel.add(new JLabel("Edit your activity"));
+//        pb.add(toAddEditLabel);
+//        pb.add(dayInfo_insert);
+//        dayInfo_insert.setSize(250, 250);
+//        pc.add(new JLabel("Time : "));
+//        pc.add(acStartTime_h);
+//        pc.add(acStartTime_m);
+//        pd.add(new JLabel(" To "));
+//        pd.add(acEndTime_h);
+//        pd.add(acEndTime_m);
+//        temp.add(pc);
+//        temp.add(pd);
+//        pb.add(temp);
+//        JPanel toAddAcSave = new JPanel(new GridLayout(2, 1));
+//        toAddAcSave.add(new JLabel(""));
+//        toAddAcSave.add(acSave);
+//        pb.add(toAddAcSave);
+
+        editInfo = new acEditInfo();
         for (int i = 0; i < 24; i++) {
-            acEndTime_h.addItem(String.format("%02d", i));
-            acStartTime_h.addItem(String.format("%02d", i));
+            editInfo.getAcEndTime_h().addItem(String.format("%02d", i));
+            editInfo.getAcStartTime_h().addItem(String.format("%02d", i));
         }
         for (int i = 0; i < 60; i++) {
-            acEndTime_m.addItem(String.format("%02d", i));
-            acStartTime_m.addItem(String.format("%02d", i));
+            editInfo.getAcEndTime_m().addItem(String.format("%02d", i));
+            editInfo.getAcStartTime_m().addItem(String.format("%02d", i));
         }
-        
-        JPanel toAddEditLabel = new JPanel(new GridLayout(2, 1));
-        toAddEditLabel.add(new JLabel(""));
-        toAddEditLabel.add(new JLabel("Edit your activity"));
-        pb.add(toAddEditLabel);
-        pb.add(dayInfo_insert);
-        dayInfo_insert.setSize(250, 250);
-        pc.add(new JLabel("Time : "));
-        pc.add(acStartTime_h);
-        pc.add(acStartTime_m);
-        pd.add(new JLabel(" To "));
-        pd.add(acEndTime_h);
-        pd.add(acEndTime_m);
-        temp.add(pc);
-        temp.add(pd);
-        pb.add(temp);
-        JPanel toAddAcSave = new JPanel(new GridLayout(2, 1));
-        toAddAcSave.add(new JLabel(""));
-        toAddAcSave.add(acSave);
-        pb.add(toAddAcSave);
-        frame3.setSize(250, 300);
-        frame3.add(pb, BorderLayout.CENTER);
+        frame3.setSize(270, 320);
+        frame3.add(editInfo, BorderLayout.CENTER);
 
         //Listener
         dayInfo.getEditButton().addActionListener(eh);
-        acSave.addActionListener(eh);
+        editInfo.getSaveButton().addActionListener(eh);
         frame3.addInternalFrameListener(eh);
         frame1.addInternalFrameListener(eh);
-        
+
         //Add Component
         leftPanel.add(calendarBtn);
         leftPanel.add(reminderBtn);
@@ -322,6 +319,10 @@ public class UIPanel {
         fr.setVisible(true);
         fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+    }
+
+    public acEditInfo getEditInfo() {
+        return editInfo;
     }
 
     public JPanel getCalendarHead() {
@@ -403,6 +404,7 @@ public class UIPanel {
     public acInfo getDayInfo() {
         return dayInfo;
     }
+
     public JTextArea getDayInfo_insert() {
         return dayInfo_insert;
     }
