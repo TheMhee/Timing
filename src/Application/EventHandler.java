@@ -83,7 +83,7 @@ public class EventHandler implements ActionListener, MouseListener, InternalFram
                 up.getDayBox()[i].showDay(i, up.getDayBox()[1].getYear(), up.getDayBox()[1].getMonth());
             }
 
-        } else if (e.getSource() == up.getAcEdit()) {
+        } else if (e.getSource() == up.getDayInfo().getEditButton()) {
             up.getFrame3().setVisible(true);
             up.getDayInfo_insert().setText(up.getAcInfo1().getText());
             if (dbTemp.getIndex() % 7 < 4) {
@@ -136,25 +136,18 @@ public class EventHandler implements ActionListener, MouseListener, InternalFram
 
     @Override
     public void mouseClicked(MouseEvent e) {
-//        if (e.getSource().equals(up.getCalendarHead())) {
-//            up.getFrame1().setVisible(false);
-//            up.getFrame3().setVisible(false);
-//            boxStat = 0;
-//        }
         if (e.getSource().getClass().getSimpleName() == "DayHead") {
             up.getFrame1().setVisible(false);
             up.getFrame3().setVisible(false);
             boxStat = 0;
         }
         dbTemp = (DayBox) e.getSource();
-        up.getAcInfo1().setText(dbTemp.getWorkTxt1().getText());
-        up.getAcTime().setText(dbTemp.getWorkTxt2().getText());
         if (dbTemp.getIndex() % 7 < 4) {
             int x2 = dbTemp.getX() + dbTemp.getWidth();
             int y2 = dbTemp.getY() + dbTemp.getHeight() - 20;
             up.getFrame1().setLocation(x2, y2);
         } else {
-            int x2 = dbTemp.getX() - dbTemp.getWidth();
+            int x2 = dbTemp.getX() - dbTemp.getWidth() - 45;
             int y2 = dbTemp.getY() + dbTemp.getHeight() - 20;
             up.getFrame1().setLocation(x2, y2);
         }
@@ -163,28 +156,18 @@ public class EventHandler implements ActionListener, MouseListener, InternalFram
             if (boxStat == 0) {
                 up.getFrame1().setVisible(true);
                 boxStat = 1;
-            } else {
-//                up.getFrame1().setVisible(false);
-//                up.getFrame3().setVisible(false);
-//                boxStat = 0;
-//                insertStat = 0;
             }
-
             try {
                 up.getFrame1().setSelected(true);
             } catch (PropertyVetoException e1) {
                 e1.printStackTrace();
             }
-        } else {
-//            up.getFrame1().setVisible(false);
-//            up.getFrame3().setVisible(false);
-//            boxStat = 0;
-//            insertStat = 0;
         }
-        up.getDayInfo_date().setText(dbTemp.getInDate());
-        up.getDayInfo_day().setText(dbTemp.getInDay());
-        up.getDayInfo_year().setText(dbTemp.getInYear());
-        up.getDayInfo_month().setText(dbTemp.getInMonth());
+        //setText in DatInfo
+        up.getDayInfo().getAcArea().setText(dbTemp.getWorkTxt1().getText());
+        up.getDayInfo().getTimeLabel().setText(dbTemp.getWorkTxt2().getText());
+        up.getDayInfo().getDayLabel().setText(dbTemp.getInDay()
+                + ",  " + dbTemp.getInDate() + " " + dbTemp.getInMonth() + " " + dbTemp.getInYear());
 
     }
 
@@ -238,11 +221,11 @@ public class EventHandler implements ActionListener, MouseListener, InternalFram
 
     @Override
     public void internalFrameDeactivated(InternalFrameEvent e) {
-        if (!e.getSource().getClass().getSimpleName().equals("DayBox")){
-        up.getFrame1().setVisible(false);
-        up.getFrame3().setVisible(false);
-        boxStat = 0;
-        insertStat = 0;
+        if (!e.getSource().getClass().getSimpleName().equals("DayBox")) {
+            up.getFrame1().setVisible(false);
+            up.getFrame3().setVisible(false);
+            boxStat = 0;
+            insertStat = 0;
         }
     }
 
