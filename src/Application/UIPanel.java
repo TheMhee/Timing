@@ -25,7 +25,7 @@ public class UIPanel {
     private JLabel dayInfo_day, dayInfo_month, DayInfo_year, DayInfo_date, acTime, showMonth, acInfo1;
     private JComboBox acStartTime_h, acEndTime_h, acStartTime_m, acEndTime_m;
     private JTextArea dayInfo_insert, acTextInfo;
-
+    private WelcomePanel welcomPanel;
     private String welName; //for name in SQL
 
     private CardLayout cards;
@@ -154,7 +154,8 @@ public class UIPanel {
 //        Thread t = new Thread(cl);
 //        t.start();
         //clock
-        cHead2.add(new WelcomePanel());
+        welcomPanel = new WelcomePanel();
+        cHead2.add(welcomPanel);
 
         cHead3.add(pYear);
         cHead3.add(pMonth);

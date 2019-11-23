@@ -95,6 +95,11 @@ public class EventHandler implements ActionListener, MouseListener, InternalFram
                 int y2 = dbTemp.getY() + dbTemp.getHeight() - 20;
                 up.getFrame3().setLocation(x2, y2);
             }
+            if(dbTemp.getIndex() >= 34 ){
+                int x2 = dbTemp.getX() + dbTemp.getWidth() - 100;
+                int y2 = dbTemp.getY() + dbTemp.getHeight() - 20;
+                up.getFrame3().setLocation(x2, y2);
+            }
             if (insertStat == 0) {
                 up.getFrame3().setVisible(true);
                 insertStat = 1;
@@ -148,13 +153,23 @@ public class EventHandler implements ActionListener, MouseListener, InternalFram
             boxStat = 0;
         }
         dbTemp = (DayBox) e.getSource();
-        if (dbTemp.getIndex() % 7 < 4) {
+        System.out.println(dbTemp.getIndex());
+        if (dbTemp.getIndex() % 7 < 4 && dbTemp.getIndex() < 28) {
             int x2 = dbTemp.getX() + dbTemp.getWidth();
             int y2 = dbTemp.getY() + dbTemp.getHeight() - 20;
             up.getFrame1().setLocation(x2, y2);
-        } else {
+        } else if (dbTemp.getIndex() % 7 >= 4 && dbTemp.getIndex() < 28) {
             int x2 = dbTemp.getX() - dbTemp.getWidth() - 45;
             int y2 = dbTemp.getY() + dbTemp.getHeight() - 20;
+            up.getFrame1().setLocation(x2, y2);
+        }else if (dbTemp.getIndex() % 7 < 4  && dbTemp.getIndex() >= 28){
+            int x2 = dbTemp.getX() + dbTemp.getWidth();
+            int y2 = dbTemp.getY() + dbTemp.getHeight() - 200;
+            up.getFrame1().setLocation(x2, y2);
+        }
+        else if (dbTemp.getIndex() % 7 >= 4  && dbTemp.getIndex() >= 28){
+            int x2 = dbTemp.getX() - dbTemp.getWidth() - 45;
+            int y2 = dbTemp.getY() + dbTemp.getHeight() - 200;
             up.getFrame1().setLocation(x2, y2);
         }
         if (!dbTemp.getDayTxt().getText().equals("")) {

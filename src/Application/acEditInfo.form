@@ -159,7 +159,7 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="headLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Edit youy Activity"/>
+            <Property name="text" type="java.lang.String" value="Edit your Activity"/>
           </Properties>
         </Component>
       </SubComponents>

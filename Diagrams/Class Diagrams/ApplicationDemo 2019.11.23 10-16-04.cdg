@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ApplicationDemo">
+  <ClassDiagramComponents>
+    <Class name="acEditInfo" package="Application" visibility="public" xPosition="24.0" yPosition="20.0">
+      <Fields>
+        <Field name="acEditInfo_Insert" type="javax.swing.JTextArea" visibility="private"/>
+        <Field name="acEndTime_h" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="acEndTime_m" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="acStartTime_h" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="acStartTime_m" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="headLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel2" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel3" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jScrollPane1" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="saveButton" type="javax.swing.JButton" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getAcEditInfo_Insert" returnType="JTextArea" visibility="public"/>
+        <Method name="getAcEndTime_h" returnType="JComboBox" visibility="public"/>
+        <Method name="getAcEndTime_m" returnType="JComboBox" visibility="public"/>
+        <Method name="getAcStartTime_h" returnType="JComboBox" visibility="public"/>
+        <Method name="getAcStartTime_m" returnType="JComboBox" visibility="public"/>
+        <Method name="getSaveButton" returnType="JButton" visibility="public"/>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="saveButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="acInfo" package="Application" visibility="public" xPosition="1409.0" yPosition="20.0">
+      <Fields>
+        <Field name="acArea" type="javax.swing.JTextArea" visibility="private"/>
+        <Field name="acLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="dayLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="editButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel2" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel3" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jScrollPane1" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="timeLabel" type="javax.swing.JLabel" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getAcLabel" returnType="JLabel" visibility="public"/>
+        <Method name="setAcLabel" returnType="void" visibility="public">
+          <Argument type="JLabel" name="acLabel"/>
+        </Method>
+        <Method name="getDayLabel" returnType="JLabel" visibility="public"/>
+        <Method name="setDayLabel" returnType="void" visibility="public">
+          <Argument type="JLabel" name="dayLabel"/>
+        </Method>
+        <Method name="getEditButton" returnType="JButton" visibility="public"/>
+        <Method name="setEditButton" returnType="void" visibility="public">
+          <Argument type="JButton" name="editButton"/>
+        </Method>
+        <Method name="getjLabel1" returnType="JLabel" visibility="public"/>
+        <Method name="setjLabel1" returnType="void" visibility="public">
+          <Argument type="JLabel" name="jLabel1"/>
+        </Method>
+        <Method name="getjPanel2" returnType="JPanel" visibility="public"/>
+        <Method name="setjPanel2" returnType="void" visibility="public">
+          <Argument type="JPanel" name="jPanel2"/>
+        </Method>
+        <Method name="getjPanel3" returnType="JPanel" visibility="public"/>
+        <Method name="setjPanel3" returnType="void" visibility="public">
+          <Argument type="JPanel" name="jPanel3"/>
+        </Method>
+        <Method name="getjScrollPane1" returnType="JScrollPane" visibility="public"/>
+        <Method name="setjScrollPane1" returnType="void" visibility="public">
+          <Argument type="JScrollPane" name="jScrollPane1"/>
+        </Method>
+        <Method name="getAcArea" returnType="JTextArea" visibility="public"/>
+        <Method name="setAcArea" returnType="void" visibility="public">
+          <Argument type="JTextArea" name="acArea"/>
+        </Method>
+        <Method name="getTimeLabel" returnType="JLabel" visibility="public"/>
+        <Method name="setTimeLabel" returnType="void" visibility="public">
+          <Argument type="JLabel" name="timeLabel"/>
+        </Method>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Clock" package="Application" visibility="public" xPosition="24.0" yPosition="1117.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="run" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="DayBox" package="Application" visibility="public" xPosition="1409.0" yPosition="1283.0">
+      <Fields>
+        <Field name="dayTxt" type="JLabel" visibility="private"/>
+        <Field name="index" type="int" visibility="private"/>
+        <Field name="inDate" type="String" visibility="private"/>
+        <Field name="dTxt" type="String" visibility="private"/>
+        <Field name="dColor" type="Color" visibility="private"/>
+        <Field name="c" type="Calendar" visibility="private" isStatic="true"/>
+        <Field name="year" type="int" visibility="private" isStatic="true"/>
+        <Field name="month" type="int" visibility="private" isStatic="true"/>
+        <Field name="datePos" type="int" visibility="private" isStatic="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="JPanel" name="jp"/>
+          <Argument type="int" name="i"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getYear" returnType="int" visibility="public"/>
+        <Method name="setYear" returnType="void" visibility="public">
+          <Argument type="int" name="year"/>
+        </Method>
+        <Method name="getMonth" returnType="int" visibility="public"/>
+        <Method name="setMonth" returnType="void" visibility="public">
+          <Argument type="int" name="month"/>
+        </Method>
+        <Method name="getInDate" returnType="String" visibility="public"/>
+        <Method name="getInDay" returnType="String" visibility="public"/>
+        <Method name="getInYear" returnType="String" visibility="public"/>
+        <Method name="getInMonth" returnType="String" visibility="public"/>
+        <Method name="getWorkTxt1" returnType="JLabel" visibility="public"/>
+        <Method name="getWorkTxt2" returnType="JLabel" visibility="public"/>
+        <Method name="addDay" returnType="void" visibility="public">
+          <Argument type="String" name="s"/>
+        </Method>
+        <Method name="addDay" returnType="void" visibility="public">
+          <Argument type="double" name="s"/>
+        </Method>
+        <Method name="addWork" returnType="void" visibility="public">
+          <Argument type="String" name="point"/>
+          <Argument type="String" name="text"/>
+        </Method>
+        <Method name="getDayTxt" returnType="JLabel" visibility="public"/>
+        <Method name="showDay" returnType="void" visibility="public">
+          <Argument type="int" name="i"/>
+          <Argument type="int" name="year"/>
+          <Argument type="int" name="month"/>
+        </Method>
+        <Method name="getIndex" returnType="int" visibility="public"/>
+        <Method name="clearDay" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="DayHead" package="Application" visibility="public" xPosition="539.0" yPosition="1099.0">
+      <Fields>
+        <Field name="dayTxt" type="JLabel" visibility="private"/>
+        <Field name="dTxt" type="String" visibility="package"/>
+        <Field name="dColor" type="Color" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="JPanel" name="jp"/>
+          <Argument type="int" name="i"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="addDay" returnType="void" visibility="public">
+          <Argument type="String" name="s"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="db" package="Application" visibility="public" xPosition="233.0" yPosition="1117.0">
+      <Fields>
+        <Field name="userId" type="int" visibility="private" isStatic="true"/>
+        <Field name="conn" type="Connection" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getUserId" returnType="int" visibility="public"/>
+        <Method name="setUserId" returnType="void" visibility="public" isStatic="true">
+          <Argument type="int" name="userId"/>
+        </Method>
+        <Method name="java__db" returnType="Connection" visibility="public" isStatic="true"/>
+        <Method name="addYearToDb" returnType="void" visibility="public" isStatic="true">
+          <Argument type="int" name="year"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="EventHandler" package="Application" visibility="public" xPosition="869.0" yPosition="1277.0">
+      <Fields>
+        <Field name="up" type="UIPanel" visibility="private"/>
+        <Field name="dbTemp" type="DayBox" visibility="private"/>
+        <Field name="boxStat" type="int" visibility="private"/>
+        <Field name="insertStat" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="UIPanel" name="u"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="actionPerformed" returnType="void" visibility="public">
+          <Argument type="ActionEvent" name="e"/>
+        </Method>
+        <Method name="mouseClicked" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+        <Method name="mousePressed" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+        <Method name="mouseReleased" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+        <Method name="mouseEntered" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+        <Method name="mouseExited" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+        <Method name="internalFrameOpened" returnType="void" visibility="public">
+          <Argument type="InternalFrameEvent" name="e"/>
+        </Method>
+        <Method name="internalFrameClosing" returnType="void" visibility="public">
+          <Argument type="InternalFrameEvent" name="e"/>
+        </Method>
+        <Method name="internalFrameClosed" returnType="void" visibility="public">
+          <Argument type="InternalFrameEvent" name="e"/>
+        </Method>
+        <Method name="internalFrameIconified" returnType="void" visibility="public">
+          <Argument type="InternalFrameEvent" name="e"/>
+        </Method>
+        <Method name="internalFrameDeiconified" returnType="void" visibility="public">
+          <Argument type="InternalFrameEvent" name="e"/>
+        </Method>
+        <Method name="internalFrameActivated" returnType="void" visibility="public">
+          <Argument type="InternalFrameEvent" name="e"/>
+        </Method>
+        <Method name="internalFrameDeactivated" returnType="void" visibility="public">
+          <Argument type="InternalFrameEvent" name="e"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="JsonManager" package="Application" visibility="public" xPosition="24.0" yPosition="600.0">
+      <Fields>
+        <Field name="dOfw" type="String" visibility="private" isStatic="true"/>
+        <Field name="mOfy" type="String" visibility="private" isStatic="true"/>
+        <Field name="parser" type="JSONParser" visibility="private" isStatic="true"/>
+        <Field name="c" type="Calendar" visibility="private" isStatic="true"/>
+        <Field name="year" type="int" visibility="private" isStatic="true"/>
+        <Field name="month" type="int" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getJSONString" returnType="String" visibility="public" isStatic="true">
+          <Argument type="int" name="year"/>
+        </Method>
+        <Method name="getMonthName" returnType="String" visibility="public" isStatic="true">
+          <Argument type="String" name="year"/>
+          <Argument type="String" name="month"/>
+        </Method>
+        <Method name="getDayOfWeek" returnType="String" visibility="public" isStatic="true">
+          <Argument type="String" name="year"/>
+          <Argument type="String" name="month"/>
+          <Argument type="String" name="date"/>
+        </Method>
+        <Method name="getDayOfWeek" returnType="String" visibility="public" isStatic="true">
+          <Argument type="int" name="year"/>
+          <Argument type="int" name="month"/>
+          <Argument type="int" name="date"/>
+        </Method>
+        <Method name="getMonthLen" returnType="int" visibility="public" isStatic="true">
+          <Argument type="String" name="year"/>
+          <Argument type="String" name="month"/>
+        </Method>
+        <Method name="getActTitle" returnType="String" visibility="public" isStatic="true">
+          <Argument type="String" name="year"/>
+          <Argument type="String" name="month"/>
+          <Argument type="String" name="date"/>
+          <Argument type="int" name="pos"/>
+        </Method>
+        <Method name="getActTimeStart" returnType="String" visibility="public" isStatic="true">
+          <Argument type="String" name="year"/>
+          <Argument type="String" name="month"/>
+          <Argument type="String" name="date"/>
+          <Argument type="int" name="pos"/>
+        </Method>
+        <Method name="getActTimeEnd" returnType="String" visibility="public" isStatic="true">
+          <Argument type="String" name="year"/>
+          <Argument type="String" name="month"/>
+          <Argument type="String" name="date"/>
+          <Argument type="int" name="pos"/>
+        </Method>
+        <Method name="setActTitle" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="year"/>
+          <Argument type="String" name="month"/>
+          <Argument type="String" name="date"/>
+          <Argument type="String" name="string"/>
+        </Method>
+        <Method name="setActTime" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="year"/>
+          <Argument type="String" name="month"/>
+          <Argument type="String" name="date"/>
+          <Argument type="String" name="tstart"/>
+          <Argument type="String" name="tend"/>
+        </Method>
+        <Method name="checkFile" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="checkFile" returnType="void" visibility="public" isStatic="true">
+          <Argument type="int" name="year"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Register" package="Application" visibility="public" xPosition="2337.0" yPosition="20.0">
+      <Fields>
+        <Field name="wel" type="WelcomePanel" visibility="private"/>
+        <Field name="conn" type="Connection" visibility="package"/>
+        <Field name="rs" type="ResultSet" visibility="package"/>
+        <Field name="pst" type="PreparedStatement" visibility="package"/>
+        <Field name="FlowLayoutBG" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="FreeLayoutBG" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="errorText" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jButtonregister" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel4" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel5" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel6" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel7" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel8" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel9" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabeldate" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabelregiser" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabeltime" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel3" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="txt_fname" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="txt_lname" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="txt_mail" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="txt_password" type="javax.swing.JPasswordField" visibility="private"/>
+        <Field name="txt_username" type="javax.swing.JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="WelcomePanel" name="wel"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="showDate" returnType="void" visibility="package"/>
+        <Method name="showTime" returnType="void" visibility="package"/>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="txt_mailActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="txt_lnameActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="txt_fnameActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="txt_passwordActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jButtonregisterActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jLabelregiserMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="txt_usernameActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="errorTextMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Signin" package="Application" visibility="public" xPosition="2337.0" yPosition="936.0">
+      <Fields>
+        <Field name="wel" type="WelcomePanel" visibility="private"/>
+        <Field name="conn" type="Connection" visibility="package"/>
+        <Field name="rs" type="ResultSet" visibility="package"/>
+        <Field name="pst" type="PreparedStatement" visibility="package"/>
+        <Field name="FlowLayoutBG" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="FreeLayoutBG" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="btClose" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="btHide" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="errorText" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jButtonlogin" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel4" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel5" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel6" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabeldate" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabelregiser" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabeltime" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel2" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="txt_password" type="javax.swing.JPasswordField" visibility="private"/>
+        <Field name="txt_username" type="javax.swing.JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="WelcomePanel" name="wel"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="showDate" returnType="void" visibility="package"/>
+        <Method name="showTime" returnType="void" visibility="package"/>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="btHideMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="btCloseMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="jLabelregiserMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="jButtonloginActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="errorTextMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="UIPanel" package="Application" visibility="public" xPosition="869.0" yPosition="20.0">
+      <Fields>
+        <Field name="desktopPane" type="JDesktopPane" visibility="private"/>
+        <Field name="fr" type="JFrame" visibility="private"/>
+        <Field name="mainPanel" type="JPanel" visibility="private"/>
+        <Field name="calendarHead" type="JPanel" visibility="private"/>
+        <Field name="menuBtn" type="JButton" visibility="private"/>
+        <Field name="dayInfo_day" type="JLabel" visibility="private"/>
+        <Field name="acStartTime_h" type="JComboBox" visibility="private"/>
+        <Field name="dayInfo_insert" type="JTextArea" visibility="private"/>
+        <Field name="welcomPanel" type="WelcomePanel" visibility="private"/>
+        <Field name="welName" type="String" visibility="private"/>
+        <Field name="cards" type="CardLayout" visibility="private"/>
+        <Field name="dTxt" type="String[]" visibility="private"/>
+        <Field name="dayHead" type="DayHead[]" visibility="private"/>
+        <Field name="dayBox" type="DayBox[]" visibility="private"/>
+        <Field name="dColor" type="Color[]" visibility="private"/>
+        <Field name="frame1" type="JInternalFrame" visibility="private"/>
+        <Field name="dayInfo" type="acInfo" visibility="private"/>
+        <Field name="editInfo" type="acEditInfo" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getCenterPanel" returnType="JPanel" visibility="public"/>
+        <Method name="getCards" returnType="CardLayout" visibility="public"/>
+        <Method name="getDayBox" returnType="DayBox[]" visibility="public"/>
+        <Method name="init" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="getEditInfo" returnType="acEditInfo" visibility="public"/>
+        <Method name="getCalendarHead" returnType="JPanel" visibility="public"/>
+        <Method name="setCalendarHead" returnType="void" visibility="public">
+          <Argument type="JPanel" name="calendarHead"/>
+        </Method>
+        <Method name="getpYear" returnType="JButton" visibility="public"/>
+        <Method name="getDayHead" returnType="DayHead[]" visibility="public"/>
+        <Method name="setDayHead" returnType="void" visibility="public">
+          <Argument type="DayHead[]" name="dayHead"/>
+        </Method>
+        <Method name="setpYear" returnType="void" visibility="public">
+          <Argument type="JButton" name="pYear"/>
+        </Method>
+        <Method name="getnYear" returnType="JButton" visibility="public"/>
+        <Method name="setnYear" returnType="void" visibility="public">
+          <Argument type="JButton" name="nYear"/>
+        </Method>
+        <Method name="getLoginFrame" returnType="JInternalFrame" visibility="public"/>
+        <Method name="setLoginFrame" returnType="void" visibility="public">
+          <Argument type="JInternalFrame" name="loginFrame"/>
+        </Method>
+        <Method name="getShowMonth" returnType="JLabel" visibility="public"/>
+        <Method name="getAcInfo1" returnType="JLabel" visibility="public"/>
+        <Method name="getAcTime" returnType="JLabel" visibility="public"/>
+        <Method name="getAcStartTime_h" returnType="JComboBox" visibility="public"/>
+        <Method name="getAcEndTime_h" returnType="JComboBox" visibility="public"/>
+        <Method name="getAcStartTime_m" returnType="JComboBox" visibility="public"/>
+        <Method name="getAcEndTime_m" returnType="JComboBox" visibility="public"/>
+        <Method name="getAcSave" returnType="JButton" visibility="public"/>
+        <Method name="getAcEdit" returnType="JButton" visibility="public"/>
+        <Method name="getDayInfo" returnType="acInfo" visibility="public"/>
+        <Method name="getDayInfo_insert" returnType="JTextArea" visibility="public"/>
+        <Method name="getCalendarBtn" returnType="JButton" visibility="public"/>
+        <Method name="getFrame1" returnType="JInternalFrame" visibility="public"/>
+        <Method name="getFrame2" returnType="JInternalFrame" visibility="public"/>
+        <Method name="getFrame3" returnType="JInternalFrame" visibility="public"/>
+        <Method name="getReminderBtn" returnType="JButton" visibility="public"/>
+        <Method name="getpMonth" returnType="JButton" visibility="public"/>
+        <Method name="getnMonth" returnType="JButton" visibility="public"/>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="WelcomePanel" package="Application" visibility="public" xPosition="1409.0" yPosition="737.0">
+      <Fields>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="userName" type="String" visibility="private"/>
+        <Field name="clock1" type="Application.Clock" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="logintext" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="userText" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="welcomeText" type="javax.swing.JLabel" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getLogintext" returnType="JLabel" visibility="public"/>
+        <Method name="setLogintext" returnType="void" visibility="public">
+          <Argument type="JLabel" name="logintext"/>
+        </Method>
+        <Method name="getUserText" returnType="JLabel" visibility="public"/>
+        <Method name="setUserText" returnType="void" visibility="public">
+          <Argument type="JLabel" name="userText"/>
+        </Method>
+        <Method name="getWelcomeText" returnType="JLabel" visibility="public"/>
+        <Method name="setWelcomeText" returnType="void" visibility="public">
+          <Argument type="JLabel" name="welcomeText"/>
+        </Method>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="getUserName" returnType="String" visibility="public"/>
+        <Method name="setUserName" returnType="void" visibility="public">
+          <Argument type="String" name="userName"/>
+        </Method>
+        <Method name="updateText" returnType="void" visibility="public"/>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="logintextMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="welcomPanel" source="Application.UIPanel" target="Application.WelcomePanel" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="editInfo" source="Application.UIPanel" target="Application.acEditInfo" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="wel" source="Application.Register" target="Application.WelcomePanel" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="up" source="Application.EventHandler" target="Application.UIPanel" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="DayBox" source="Application.UIPanel" target="Application.DayBox" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="dayInfo" source="Application.UIPanel" target="Application.acInfo" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="DayHead" source="Application.UIPanel" target="Application.DayHead" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="dbTemp" source="Application.EventHandler" target="Application.DayBox" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="wel" source="Application.Signin" target="Application.WelcomePanel" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

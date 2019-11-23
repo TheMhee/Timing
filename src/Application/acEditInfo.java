@@ -104,7 +104,7 @@ public class acEditInfo extends javax.swing.JPanel {
         acEditInfo_Insert.setLineWrap(true);
         acEditInfo_Insert.setWrapStyleWord(true);
 
-        headLabel.setText("Edit youy Activity");
+        headLabel.setText("Edit your Activity");
         jPanel2.add(headLabel);
 
         acStartTime_h.setModel(new javax.swing.DefaultComboBoxModel<>());
