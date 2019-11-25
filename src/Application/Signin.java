@@ -35,6 +35,7 @@ public class Signin extends javax.swing.JFrame {
      */
     public Signin(WelcomePanel wel) {
         this.setTitle("Signin");
+        this.setIconImage(new ImageIcon("./pic/logo.png").getImage());
         this.wel = wel;
         initComponents();
         try {

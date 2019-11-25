@@ -67,6 +67,7 @@ public class UIPanel {
         ((javax.swing.plaf.basic.BasicInternalFrameUI) frame3.getUI()).setNorthPane(null);
 
         fr = new JFrame("Timing");
+        fr.setIconImage(new ImageIcon("./pic/logo.png").getImage());
         mainPanel = new JPanel();
         leftPanel = new JPanel();
         menuBtn = new JButton();

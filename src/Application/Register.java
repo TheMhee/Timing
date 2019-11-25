@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
@@ -34,6 +35,7 @@ public class Register extends javax.swing.JFrame {
      */
     public Register(WelcomePanel wel) {
         this.setTitle("Register");
+        this.setIconImage(new ImageIcon("./pic/logo.png").getImage());
         this.wel = wel;
         initComponents();
         try {

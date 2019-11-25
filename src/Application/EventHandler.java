@@ -47,21 +47,21 @@ public class EventHandler implements ActionListener, MouseListener, InternalFram
                 up.getDayBox()[1].setYear(up.getDayBox()[1].getYear() + 1);
             }
             JsonManager.checkFile(up.getDayBox()[1].getYear());
-            up.getShowMonth().setText(JsonManager.getMonthName(up.getDayBox()[1].getYear() + "", up.getDayBox()[1].getMonth() + "") + "/" + up.getDayBox()[1].getYear());
+            up.getShowMonth().setText(JsonManager.getMonthName(up.getDayBox()[1].getYear() + "", up.getDayBox()[1].getMonth() + "") + " - " + up.getDayBox()[1].getYear());
             for (int i = 0; i < 42; i++) {
                 up.getDayBox()[i].clearDay();
                 up.getDayBox()[i].showDay(i, up.getDayBox()[1].getYear(), up.getDayBox()[1].getMonth());
             }
 
         } else if (e.getSource() == up.getpMonth()) {
-            if (up.getDayBox()[1].getMonth() > 1) {
+            if (up.getDayBox()[1].getMonth() > 0) {
                 up.getDayBox()[1].setMonth(up.getDayBox()[1].getMonth() - 1);
             } else {
                 up.getDayBox()[1].setMonth(up.getDayBox()[1].getMonth() + 11);
                 up.getDayBox()[1].setYear(up.getDayBox()[1].getYear() - 1);
             }
             JsonManager.checkFile(up.getDayBox()[1].getYear());
-            up.getShowMonth().setText(JsonManager.getMonthName(up.getDayBox()[1].getYear() + "", up.getDayBox()[1].getMonth() + "") + "/" + up.getDayBox()[1].getYear());
+            up.getShowMonth().setText(JsonManager.getMonthName(up.getDayBox()[1].getYear() + "", up.getDayBox()[1].getMonth() + "") + " - " + up.getDayBox()[1].getYear());
             for (int i = 0; i < 42; i++) {
                 up.getDayBox()[i].clearDay();
                 up.getDayBox()[i].showDay(i, up.getDayBox()[1].getYear(), up.getDayBox()[1].getMonth());
@@ -69,7 +69,7 @@ public class EventHandler implements ActionListener, MouseListener, InternalFram
         } else if (e.getSource() == up.getpYear()) {
             up.getDayBox()[1].setYear(up.getDayBox()[1].getYear() - 1);
             JsonManager.checkFile(up.getDayBox()[1].getYear());
-            up.getShowMonth().setText(JsonManager.getMonthName(up.getDayBox()[1].getYear() + "", up.getDayBox()[1].getMonth() + "") + "/" + up.getDayBox()[1].getYear());
+            up.getShowMonth().setText(JsonManager.getMonthName(up.getDayBox()[1].getYear() + "", up.getDayBox()[1].getMonth() + "") + " - " + up.getDayBox()[1].getYear());
             for (int i = 0; i < 42; i++) {
                 up.getDayBox()[i].clearDay();
                 up.getDayBox()[i].showDay(i, up.getDayBox()[1].getYear(), up.getDayBox()[1].getMonth());
@@ -77,7 +77,7 @@ public class EventHandler implements ActionListener, MouseListener, InternalFram
         } else if (e.getSource() == up.getnYear()) {
             up.getDayBox()[1].setYear(up.getDayBox()[1].getYear() + 1);
             JsonManager.checkFile(up.getDayBox()[1].getYear());
-            up.getShowMonth().setText(JsonManager.getMonthName(up.getDayBox()[1].getYear() + "", up.getDayBox()[1].getMonth() + "") + "/" + up.getDayBox()[1].getYear());
+            up.getShowMonth().setText(JsonManager.getMonthName(up.getDayBox()[1].getYear() + "", up.getDayBox()[1].getMonth() + "") + " - " + up.getDayBox()[1].getYear());
             for (int i = 0; i < 42; i++) {
                 up.getDayBox()[i].clearDay();
                 up.getDayBox()[i].showDay(i, up.getDayBox()[1].getYear(), up.getDayBox()[1].getMonth());
