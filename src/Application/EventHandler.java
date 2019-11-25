@@ -85,7 +85,7 @@ public class EventHandler implements ActionListener, MouseListener, InternalFram
 
         } else if (e.getSource() == up.getDayInfo().getEditButton()) {
             up.getFrame3().setVisible(true);
-            up.getEditInfo().getAcEditInfo_Insert().setText(up.getAcInfo1().getText());
+            up.getEditInfo().getAcEditInfo_Insert().setText(up.getDayInfo().getAcArea().getText());
             if (dbTemp.getIndex() % 7 < 4) {
                 int x2 = dbTemp.getX() + dbTemp.getWidth();
                 int y2 = dbTemp.getY() + dbTemp.getHeight() - 20;

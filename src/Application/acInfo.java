@@ -136,6 +136,7 @@ public class acInfo extends javax.swing.JPanel {
 
         editButton.setText("Edit");
 
+        acArea.setBackground(new java.awt.Color(240, 240, 240));
         acArea.setColumns(20);
         acArea.setRows(5);
         acArea.setMaximumSize(new java.awt.Dimension(180, 80));
