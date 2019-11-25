@@ -321,8 +321,7 @@ public class Signin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonloginActionPerformed
 
     private void errorTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_errorTextMouseClicked
-        new UIPanel().init("Guest");
-        this.dispose();
+
     }//GEN-LAST:event_errorTextMouseClicked
 
     /**
